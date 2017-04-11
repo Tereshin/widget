@@ -1,0 +1,60 @@
+$widget-padding: 20px;
+
+@define-mixin widget-text-style {
+  color: $text-color;
+  font-family: Open Sans;
+  font-weight: 600;
+}
+
+.widget {
+  position: relative;
+  max-width: 1024px;
+  min-width: 200px;
+  padding: $widget-padding;
+  padding-bottom: 72px;
+  background-color: $bg-color;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  &-title {
+    margin-bottom: 15px;
+    font-size: 18px;
+    @mixin widget-text-style;
+  }
+  &-desc {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 $widget-padding $widget-padding;
+    font-size: 10px;
+    @mixin widget-text-style;
+  }
+}
+
+@media (min-width: 440px) {
+  .widget {
+    padding-bottom: 20px;
+    &-desc {
+      position: relative;
+      margin: 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .widget-title {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .widget-desc {
+    display: inline-block;
+    width: percentage(1 / 4);
+    margin-bottom: 0;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+}
