@@ -9,5 +9,9 @@ export default class Form {
     this.elem.className = 'form';
 
     this.elem.innerHTML = template(options);
+    $(this.elem).on('submit', function(e) {
+      e.preventDefault();
+      console.log("submit");
+    });
   }
 }

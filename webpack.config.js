@@ -1,5 +1,7 @@
 'use strict';
 
+const webpack = require('webpack');
+
 module.exports = {
   context: __dirname + '/src',
   entry: './app',
@@ -22,5 +24,20 @@ module.exports = {
         loader: 'style-loader!css-loader!postcss-loader'
       },
     ]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
+      'jquery': 'jquery',
+      'window.jquery': 'jquery',
+      '$': 'jquery',
+      'window.$': 'jquery'
+    })
+  ],
+  resolve: {
+    alias: {
+        'jquery': require.resolve('jquery'),
+    }
   }
 }
